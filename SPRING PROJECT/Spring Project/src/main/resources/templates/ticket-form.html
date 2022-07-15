@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <title>New Ticket</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="bg-success text-white text-center">
+                <h1>New Ticket</h1>
+    <!--            <p class="h4 mb-4">Save Employee</p>-->
+            </div>
+            <form action="#" th:action="@{/manager/tickets/save}"
+                                th:object="${ticket}" method="POST">
+
+                <!-- Adding handle for update -->
+                <input type="hidden" th:field="*{ticketId}" />
+
+<!--                <form hidden th:text="${#authentication.getPrincipal().getUsername()}" />-->
+
+                <input type="text" th:field="*{ticketName}"
+                        class="form-control mb-4 col-4" placeholder="Ticket Name">
+
+                Assigned By User : <span th:text="${currentUser}"></span>
+
+                <br><br>
+                Assigned To User
+                <select th:field="*{assignedToUser}">
+                    <option th:each="user : ${users}" th:value="${user.getUserName}" th:text="${user.getUserName}">
+                    </option>
+                </select>
+
+                <br><br>
+
+                Status
+                <select th:field="*{status}">
+                    <option th:each="status : ${statusList}" th:value="${status}" th:text="${status}">
+                    </option>
+                </select>
+
+                <br><br><br>
+
+
+                <div class="position-relative">
+                    <button type="submit" class="btn btn-info col-2 text-center position-absolute top-100 start-50 translate-middle">Save</button>
+                </div>
+            </form>
+
+            <br>
+            <hr>
+            <a th:href="@{/manager/tickets/list}" class="btn btn-primary">Back to List</a>
+        </div>
+    </body>
+</html>

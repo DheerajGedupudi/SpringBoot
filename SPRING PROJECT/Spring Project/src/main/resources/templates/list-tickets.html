@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <title>Ticket List</title>
+    </head>
+    <body>
+        <div class="container mybody">
+            <div class="text-center display-1 bg-success bg-gradient text-white">
+                <h1>Ticket List</h1>
+            </div>
+
+            <!-- Adding button -->
+            <a href="/manager/tickets/showFormToAdd"
+                class="btn btn-info mb-3 btn-outline-warning text-black btn">
+                Add New Ticket
+            </a>
+            <table class="table table-bordered table-striped">
+                <thead class="table-primary text-center">
+                    <tr>
+                        <th>Ticket Name</th>
+                        <th>Assigned By</th>
+                        <th>Assigned To</th>
+                        <th>Status</th>
+                        <th>Modify</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr th:each="myTicket : ${ticketList}">
+                        <td th:text="${myTicket.ticketName}">
+                        <td th:text="${myTicket.assignedByUser.getUserDetail.firstName}">
+                        <td th:text="${myTicket.assignedToUser.getUserDetail.firstName}">
+                        <td th:text="${myTicket.status}">
+                        <td class="text-center btn-group">
+                            <div class="text-center">
+                                <!-- Adding update button link -->
+                                <a th:href="@{/manager/tickets/showFormToUpdate/{ticketId}(ticketId=${myTicket.ticketId})}" class="btn btn-sm btn-info btn-outline-primary text-black">
+                                    Update
+                                </a>
+                                <a th:href="@{/manager/tickets/delete/{ticketId}(ticketId=${myTicket.ticketId})}" class="btn btn-sm btn-info btn-outline-danger text-black"
+                                   onclick="if(!(confirm('Do you really want to delete this ticket?'))) return false">Remove</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+            <a href="/" class="btn btn-sm btn-secondary">Back</a>
+        </div>
+    </body>
+</html>
