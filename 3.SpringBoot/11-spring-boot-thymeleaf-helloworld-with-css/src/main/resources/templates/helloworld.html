@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>ThymeLeaf Demo</title>
+        <!-- Reference css file -->
+        <link rel="stylesheet" th:href="@{/css/sample.css}" />
+    </head>
+    <body>
+        <p th:text="'Time on the server is '+ ${theDate}" class="random" />
+    </body>
+</html>

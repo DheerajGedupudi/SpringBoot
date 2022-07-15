@@ -1,0 +1,9 @@
+
+[
+java:S5344$">Don't use the default "PasswordEncoder" relying on plain-text.(€ð¤š8µ¹¨Âš0
+]	java:S125"<This block of commented-out lines of code should be removed.(šµÅ½øÿÿÿÿ8·Š§Âš0
+l
+java:S1128	"ORemove this unused import 'org.springframework.security.core.userdetails.User'.(–Ä€8¹Š§Âš0
+}
+java:S1128
+"[Remove this unused import 'org.springframework.security.core.userdetails.User.UserBuilder'.(ºš°¯ÿÿÿÿÿ8¹Š§Âš0
