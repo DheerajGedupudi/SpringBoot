@@ -80,11 +80,11 @@ public class Ticket
     @Override
     public String toString() {
         return "Ticket{" +
-                "ticketId=" + ticketId +
-                ", ticketName='" + ticketName + '\'' +
-                ", assignedByUser=" + assignedByUser +
-                ", assignedToUser=" + assignedToUser +
-                ", status='" + status + '\'' +
+                "ticketId =" + ticketId +
+                ", ticketName ='" + ticketName + '\'' +
+                ", assignedByUser =" + assignedByUser.getUserName() +
+                ", assignedToUser =" + assignedToUser.getUserName() +
+                ", status ='" + status + '\'' +
                 '}';
     }
 }

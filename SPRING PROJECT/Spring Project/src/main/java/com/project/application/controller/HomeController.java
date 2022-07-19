@@ -79,7 +79,7 @@ public class HomeController
     }
 
     @PostMapping("/update/save")
-    public String saveTicket(@ModelAttribute("employee") Ticket myTicket)
+    public String saveTicket(@ModelAttribute("employee") Ticket myTicket, Principal myPrincipal)
     {
         myTicket.setTicketName(ticketName);
         myTicket.setAssignedByUser(assignedByUser);

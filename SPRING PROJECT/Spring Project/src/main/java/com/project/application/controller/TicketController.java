@@ -106,7 +106,7 @@ public class TicketController
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable int id)
+    public String deleteTicket(@PathVariable int id, Principal myPrincipal)
     {
         ticketService.deleteTicket(id);
 
